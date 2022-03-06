@@ -12,4 +12,5 @@
     <string name="menu_history">Transaction History</string>
     <string name="menu_calculator">Calculator</string>
     <string name="scan_card">Scan Card</string>
+    <string name="search_text">Search</string>
 </resources>
