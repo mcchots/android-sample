@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Top It Up</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Test App</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Logout</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_users">Device Users</string>
+    <string name="menu_history">Transaction History</string>
+    <string name="menu_calculator">Calculator</string>
+    <string name="scan_card">Scan Card</string>
+</resources>
