@@ -13,4 +13,20 @@
     <string name="menu_calculator">Calculator</string>
     <string name="scan_card">Scan Card</string>
     <string name="search_text">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="total_users">"• Total # Users: "</string>
+    <string name="total_points">"•  Total # Points: "</string>
+    <string name="total_of_cards">"•  Total # of Cards: "</string>
+    <string name="leading_user_points">"•  Leading User Points: "</string>
+    <string name="user_ranking_text">User Ranking</string>
 </resources>

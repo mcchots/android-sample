@@ -1,15 +1,13 @@
 package com.example.topitup.ui.history
 
-import android.app.DatePickerDialog
-import android.app.Dialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.DatePicker
+import android.util.Log
+import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.topitup.DatePickerFragment
+import com.example.topitup.R
 import com.example.topitup.databinding.FragmentHistoryBinding
 
 class HistoryFragment : Fragment() {
@@ -35,6 +33,29 @@ class HistoryFragment : Fragment() {
         historyViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        //https://github.com/chankruze/DatePickerDialogFragment/blob/main/app/src/main/java/in/geekofia/example/demoapp/HomeFragment.kt
+
+        binding.searchButton.setOnClickListener {// create new instance of DatePickerFragment
+            val datePickerFragment = DatePickerFragment()
+            val supportFragmentManager = requireActivity().supportFragmentManager
+
+            // we have to implement setFragmentResultListener
+            supportFragmentManager.setFragmentResultListener(
+                "REQUEST_KEY",
+                viewLifecycleOwner
+            ) { resultKey, bundle ->
+                if (resultKey == "REQUEST_KEY") {
+                    val date = bundle.getString("SELECTED_DATE")
+                    textView.text = date.toString()
+                    Log.d("Date", date.toString())
+                }
+            }
+
+            // show
+            datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
+        }
+
+        setHasOptionsMenu(true)
         return root
     }
 
@@ -43,26 +64,7 @@ class HistoryFragment : Fragment() {
         _binding = null
     }
 
-    class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
-
-        override fun onCreateDialog(savedInstanceState: Bundle): Dialog {
-            // Use the current date as the default date in the picker
-            val c = Calendar.getInstance()
-            val year = c.get(Calendar.YEAR)
-            val month = c.get(Calendar.MONTH)
-            val day = c.get(Calendar.DAY_OF_MONTH)
-
-            // Create a new instance of DatePickerDialog and return it
-            return DatePickerDialog(activity, this, year, month, day)
-        }
-
-        override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-            // Do something with the date chosen by the user
-        }
-    }
-
-    fun showDatePickerDialog(v: View) {
-        val newFragment = DatePickerFragment()
-        newFragment.show(supportFragmentManager, "datePicker")
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.history_fragment, menu)
     }
 }

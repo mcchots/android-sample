@@ -1,12 +1,11 @@
 package com.example.topitup.ui.users
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.topitup.R
 import com.example.topitup.databinding.FragmentUsersBinding
 
 class UsersFragment : Fragment() {
@@ -32,11 +31,17 @@ class UsersFragment : Fragment() {
         galleryViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        setHasOptionsMenu(true)
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.user_fragment, menu)
     }
 }

@@ -7,11 +7,10 @@
     tools:context=".ui.history.HistoryFragment">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:onClick="showDatePickerDialog"
+        android:layout_marginTop="16dp"
         android:text="@string/search_text"
         android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +21,13 @@
         android:id="@+id/text_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="581dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.132" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
