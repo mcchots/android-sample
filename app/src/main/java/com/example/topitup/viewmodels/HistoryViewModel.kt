@@ -1,13 +1,13 @@
-package com.example.topitup.ui.home
+package com.example.topitup.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class HistoryViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "User Ranking"
+        value = "All Dates"
     }
     val text: LiveData<String> = _text
 }

@@ -2,7 +2,7 @@
     <string name="app_name">Top It Up</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Test App</string>
+    <string name="nav_header_title">Top It Up Test App</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Logout</string>
@@ -13,8 +13,7 @@
     <string name="menu_calculator">Calculator</string>
     <string name="scan_card">Scan Card</string>
     <string name="search_text">Search</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -24,9 +23,18 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
     <string name="total_users">"• Total # Users: "</string>
     <string name="total_points">"•  Total # Points: "</string>
     <string name="total_of_cards">"•  Total # of Cards: "</string>
     <string name="leading_user_points">"•  Leading User Points: "</string>
     <string name="user_ranking_text">User Ranking</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="card_number">Card Number</string>
+    <string name="user">User</string>
+    <string name="points">Points</string>
+    <string name="total_cards_scanned">Total Cards Scanned</string>
+    <string name="_zero">0</string>
+    <string name="nobody">Nobody</string>
 </resources>

@@ -22,7 +22,7 @@
             android:title="@string/menu_calculator" />
         <item
             android:id="@+id/nav_scanner"
-            android:icon="@drawable/ic_card_scan"
+            android:icon="@drawable/ic_menu_card_scanner"
             android:title="Scan Card" />
     </group>
 </menu>

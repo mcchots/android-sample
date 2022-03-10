@@ -1,4 +1,4 @@
-package com.example.topitup.ui.history
+package com.example.topitup
 
 import android.os.Bundle
 import android.util.Log
@@ -6,9 +6,8 @@ import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.topitup.DatePickerFragment
-import com.example.topitup.R
 import com.example.topitup.databinding.HistoryFragmentBinding
+import com.example.topitup.viewmodels.HistoryViewModel
 
 class HistoryFragment : Fragment() {
 

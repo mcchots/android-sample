@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.topitup.ui.home.HomeFragment"
+        android:name="com.example.topitup.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/nav_users"
-        android:name="com.example.topitup.ui.users.UsersFragment"
+        android:name="com.example.topitup.DetailFragment"
         android:label="@string/menu_users"
-        tools:layout="@layout/users_fragment" />
+        tools:layout="@layout/detail_fragment" />
 
     <fragment
         android:id="@+id/nav_history"
-        android:name="com.example.topitup.ui.history.HistoryFragment"
+        android:name="com.example.topitup.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/history_fragment" />
     <fragment
         android:id="@+id/nav_calculator"
-        android:name="com.example.topitup.ui.calculator.CalculatorFragment"
+        android:name="com.example.topitup.CalculatorFragment"
         android:label="@string/menu_calculator"
         tools:layout="@layout/calculator_fragment" />
   <!--  <fragment

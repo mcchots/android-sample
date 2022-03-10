@@ -1,16 +1,15 @@
-package com.example.topitup.ui.users
+package com.example.topitup
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.topitup.R
-import com.example.topitup.databinding.UsersFragmentBinding
+import com.example.topitup.databinding.DetailFragmentBinding
+import com.example.topitup.viewmodels.DetailViewModel
 
-class UsersFragment : Fragment() {
+class DetailFragment : Fragment() {
 
-    private var _binding: UsersFragmentBinding? = null
+    private var _binding: DetailFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,15 +21,11 @@ class UsersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val galleryViewModel =
-            ViewModelProvider(this).get(UsersViewModel::class.java)
+            ViewModelProvider(this).get(DetailViewModel::class.java)
 
-        _binding = UsersFragmentBinding.inflate(inflater, container, false)
+        _binding = DetailFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textUsers
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
 
         setHasOptionsMenu(true)
         return root
