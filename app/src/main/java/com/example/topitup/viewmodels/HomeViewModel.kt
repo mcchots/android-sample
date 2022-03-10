@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 class HomeViewModel(private val userDao: UserDao) : ViewModel() {
     fun getAll(): Flow<List<User>> = userDao.getAll()
     fun getTopStats(): Flow<List<TopUser>> = userDao.getTopUsers()
-    fun getUserDetails(name: String): Flow<List<User>> = userDao.getUserDetail(name)
+    //fun getUserDetails(name: String): Flow<List<User>> = userDao.getUserDetail(name)
 }
 
 class HomeViewModelFactory(

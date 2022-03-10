@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/tvUser"
-            android:layout_width="160dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="@string/user" />
 

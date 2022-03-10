@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/num_users_text"
                 android:layout_width="wrap_content"
@@ -31,20 +32,21 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/secondaryTextColor"
-                android:text="@string/total_users" />
+                android:text="@string/total_users"
+                android:textColor="@color/secondaryTextColor" />
 
             <TextView
                 android:id="@+id/num_users"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/secondaryTextColor"
-                android:text="@string/_zero" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_zero"
+                android:textColor="@color/secondaryTextColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,13 +69,14 @@
                 android:id="@+id/num_points"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/secondaryTextColor"
-                android:text="@string/_zero" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_zero"
+                android:textColor="@color/secondaryTextColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,13 +99,14 @@
                 android:id="@+id/num_cards"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/secondaryTextColor"
-                android:text="@string/_zero" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_zero"
+                android:textColor="@color/secondaryTextColor" />
         </LinearLayout>
 
         <LinearLayout
@@ -125,13 +129,14 @@
                 android:id="@+id/leading_user"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/secondaryTextColor"
-                android:text="@string/nobody" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/nobody"
+                android:textColor="@color/secondaryTextColor" />
         </LinearLayout>
     </LinearLayout>
 
@@ -140,7 +145,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/user_ranking_text"
         android:textAlignment="center"
@@ -157,7 +162,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,6 +173,7 @@
             android:id="@+id/tvUser"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/user" />
 
         <TextView
@@ -175,6 +181,7 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/total_cards_scanned" />
 
         <TextView
@@ -191,7 +198,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:orientation="vertical"
@@ -204,11 +211,14 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp" >
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            tools:itemCount="10"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/users_item"
+            tools:orientation="vertical"
+            tools:scrollbars="vertical">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>

@@ -3,34 +3,65 @@ package com.example.topitup
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.topitup.databinding.HistoryFragmentBinding
 import com.example.topitup.viewmodels.HistoryViewModel
+import com.example.topitup.viewmodels.HistoryViewModelFactory
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
-class HistoryFragment : Fragment() {
+class HistoryFragment() : Fragment() {
 
     private var _binding: HistoryFragmentBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var recyclerView: RecyclerView
+
+    private val viewModel: HistoryViewModel by activityViewModels {
+        HistoryViewModelFactory(
+            (activity?.application as UserApplication).database.historyDao()
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val historyViewModel =
-            ViewModelProvider(this).get(HistoryViewModel::class.java)
+        /*val historyViewModel =
+            ViewModelProvider(this).get(HistoryViewModel::class.java)*/
 
         _binding = HistoryFragmentBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val view = binding.root
 
-        val textView: TextView = binding.textHistory
+        /*val textView: TextView = binding.textHistory
         historyViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }*/
+
+
+        setHasOptionsMenu(true)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val historyAdapter = HistoryAdapter()
+
+        recyclerView.adapter = historyAdapter
+
+        lifecycle.coroutineScope.launch {
+            viewModel.getAll().collect() {
+                historyAdapter.submitList(it)
+            }
         }
         //https://github.com/chankruze/DatePickerDialogFragment/blob/main/app/src/main/java/in/geekofia/example/demoapp/HomeFragment.kt
 
@@ -45,8 +76,15 @@ class HistoryFragment : Fragment() {
             ) { resultKey, bundle ->
                 if (resultKey == "REQUEST_KEY") {
                     val date = bundle.getString("SELECTED_DATE")
-                    textView.text = date.toString()
+                    binding.textHistory.text = date.toString()
                     Log.d("Date", date.toString())
+
+                    //TODO: Is this the right way to do this?
+                    lifecycle.coroutineScope.launch {
+                        viewModel.SearchDate(date.toString()).collect() {
+                            historyAdapter.submitList(it)
+                        }
+                    }
                 }
             }
 
@@ -54,8 +92,8 @@ class HistoryFragment : Fragment() {
             datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
         }
 
-        setHasOptionsMenu(true)
-        return root
+        //TODO: Add another button to reset the search
+        //binding.resetButton.setOnClickListener {
     }
 
     override fun onDestroyView() {

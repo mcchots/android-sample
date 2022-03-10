@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.topitup.database.user.User
-import com.example.topitup.databinding.TopUsersItemBinding
+import com.example.topitup.databinding.UsersItemBinding
 
+/*class UserAdapter(private val onItemClicked: (User) -> Unit
+) : ListAdapter<User, UserAdapter.UserViewHolder>(DiffCallback){}
 
-class UserAdapter(private val onItemClicked: (User) -> Unit
-) : ListAdapter<User, UserAdapter.UserViewHolder>(DiffCallback) {
+*/
+class UserAdapter() : ListAdapter<User, UserAdapter.UserViewHolder>(DiffCallback) {
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<User>() {
@@ -24,7 +26,7 @@ class UserAdapter(private val onItemClicked: (User) -> Unit
         }
     }
 
-    class UserViewHolder(private var binding: TopUsersItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class UserViewHolder(private var binding: UsersItemBinding): RecyclerView.ViewHolder(binding.root) {
         //@SuppressLint("SimpleDateFormat")
         fun bind(user: User) {
             binding.nameTextView.text = user.name
@@ -35,16 +37,16 @@ class UserAdapter(private val onItemClicked: (User) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val viewHolder = UserViewHolder(
-            TopUsersItemBinding.inflate(
+            UsersItemBinding.inflate(
                 LayoutInflater.from( parent.context),
                 parent,
                 false
             )
         )
-        viewHolder.itemView.setOnClickListener {
+        /*viewHolder.itemView.setOnClickListener {
             val position = viewHolder.bindingAdapterPosition
             onItemClicked(getItem(position))
-        }
+        }*/
         return viewHolder
     }
 

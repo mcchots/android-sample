@@ -36,6 +36,9 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
+
+
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -44,20 +47,34 @@ class HomeFragment: Fragment() {
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val userAdapter = UserAdapter {
+        // get name and open in detail screen
+        // Not used here in this application. I was just trying it out
+        /*val userAdapter = UserAdapter {
             val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(
                 it.name
 
             )
             Log.d("Data",it.name)
             view.findNavController().navigate(action)
-        }
+        }*/
+        val userAdapter = UserAdapter()
         recyclerView.adapter = userAdapter
 
         lifecycle.coroutineScope.launch {
             viewModel.getAll().collect() {
                 userAdapter.submitList(it)
             }
+        }
+        lifecycle.coroutineScope.launch {
+        viewModel.getTopStats().collect {
+            it.forEach() {
+                Log.d("Database", it.toString())
+                binding.numUsers.text = it.total_users.toString()
+                binding.numPoints.text = it.total_points.toString()
+                binding.numCards.text = it.total_cards.toString()
+                binding.leadingUser.text = it.leader
+            }
+        }
         }
     }
 
