@@ -1,4 +1,4 @@
-package com.example.topitup.ui
+package com.example.topitup
 
 import android.content.Context
 import android.os.Bundle

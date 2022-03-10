@@ -27,14 +27,14 @@
         android:name="com.example.topitup.ui.calculator.CalculatorFragment"
         android:label="@string/menu_calculator"
         tools:layout="@layout/calculator_fragment" />
-    <fragment
+  <!--  <fragment
         android:id="@+id/nav_login"
         android:name="com.example.topitup.ui.login.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login"/>-->
     <fragment
         android:id="@+id/nav_scanner"
-        android:name="com.example.topitup.ui.ScannerFragment"
+        android:name="com.example.topitup.ScannerFragment"
         android:label="Scan Card"
         tools:layout="@layout/scanner_fragment" >
         <action
