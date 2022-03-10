@@ -9,24 +9,24 @@
         android:id="@+id/nav_home"
         android:name="com.example.topitup.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/nav_users"
         android:name="com.example.topitup.ui.users.UsersFragment"
         android:label="@string/menu_users"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/users_fragment" />
 
     <fragment
         android:id="@+id/nav_history"
         android:name="com.example.topitup.ui.history.HistoryFragment"
         android:label="@string/menu_history"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/history_fragment" />
     <fragment
         android:id="@+id/nav_calculator"
         android:name="com.example.topitup.ui.calculator.CalculatorFragment"
         android:label="@string/menu_calculator"
-        tools:layout="@layout/fragment_calculator" />
+        tools:layout="@layout/calculator_fragment" />
     <fragment
         android:id="@+id/nav_login"
         android:name="com.example.topitup.ui.login.LoginFragment"
@@ -34,9 +34,9 @@
         tools:layout="@layout/fragment_login"/>
     <fragment
         android:id="@+id/nav_scanner"
-        android:name="com.example.topitup.ui.ScanFragment"
+        android:name="com.example.topitup.ui.ScannerFragment"
         android:label="Scan Card"
-        tools:layout="@layout/fragment_scan" >
+        tools:layout="@layout/scanner_fragment" >
         <action
             android:id="@+id/action_nav_scanner_to_nav_home"
             app:destination="@id/nav_home" />

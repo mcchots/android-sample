@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/menu/history_fragment.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/menu/home_fragment.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/menu/main.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/menu/scanner_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/menu/user_fragment.xml" value="0.35833333333333334" />
       </map>
     </option>

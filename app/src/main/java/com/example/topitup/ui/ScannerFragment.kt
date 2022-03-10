@@ -1,22 +1,36 @@
 package com.example.topitup.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.Preview
+import android.view.*
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.topitup.R
-import com.example.topitup.databinding.FragmentScanBinding
+import com.example.topitup.databinding.ScannerFragmentBinding
+import java.nio.ByteBuffer
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
+typealias LumaListener = (luma: Double) -> Unit
 
-class ScanFragment : Fragment(R.layout.fragment_scan) {
-    private var _binding: FragmentScanBinding? = null
+class ScannerFragment : Fragment(R.layout.scanner_fragment) {
+    private var _binding: ScannerFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private var preview: Preview? = null
+    private var imageCapture: ImageCapture? = null
+    private var imageAnalyzer: ImageAnalysis? = null
+    private var camera: Camera? = null
+
+    companion object {
+        private const val TAG = "CameraXApp"
+    }
+    private lateinit var cameraExecutor: ExecutorService
+
+    private lateinit var safeContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +41,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentScanBinding.inflate(inflater, container, false)
+        _binding = ScannerFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
 
         setHasOptionsMenu(true)
@@ -37,8 +51,8 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
+        cameraExecutor = Executors.newSingleThreadExecutor()
+        startCamera()
         /* val viewFinder = Preview.Builder()
             .setTargetRotation(Surface.ROTATION_0)
             .build()
@@ -80,10 +94,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
 */
     }
 
-    override fun onStart() {
-        super.onStart()
-        startCamera()
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -91,9 +102,31 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
     }
 
 
-    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.calculator_fragment, menu)
-    }*/
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.scanner_fragment, menu)
+    }
+
+    private class LuminosityAnalyzer(private val listener: LumaListener) : ImageAnalysis.Analyzer {
+
+        private fun ByteBuffer.toByteArray(): ByteArray {
+            rewind()    // Rewind the buffer to zero
+            val data = ByteArray(remaining())
+            get(data)   // Copy the buffer into a byte array
+            return data // Return the byte array
+        }
+
+        override fun analyze(image: ImageProxy) {
+
+            val buffer = image.planes[0].buffer
+            val data = buffer.toByteArray()
+            val pixels = data.map { it.toInt() and 0xFF }
+            val luma = pixels.average()
+
+            listener(luma)
+
+            image.close()
+        }
+    }
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireActivity())
@@ -109,6 +142,14 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
                     it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
                 }
 
+            val imageAnalyzer = ImageAnalysis.Builder()
+                .build()
+                .also {
+                    it.setAnalyzer(cameraExecutor, LuminosityAnalyzer { luma ->
+                        Log.d(TAG, "Average luminosity: $luma")
+                    })
+                }
+
             // Select back camera as a default
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
@@ -118,7 +159,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
 
                 // Bind use cases to camera
                 cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview
+                    this, cameraSelector, preview, imageAnalyzer
                 )
 
             } catch (exc: Exception) {
@@ -127,5 +168,6 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
 
         }, ContextCompat.getMainExecutor(requireActivity()))
     }
-}
 
+
+}

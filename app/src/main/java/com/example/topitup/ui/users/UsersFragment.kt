@@ -6,11 +6,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.topitup.R
-import com.example.topitup.databinding.FragmentUsersBinding
+import com.example.topitup.databinding.UsersFragmentBinding
 
 class UsersFragment : Fragment() {
 
-    private var _binding: FragmentUsersBinding? = null
+    private var _binding: UsersFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +24,7 @@ class UsersFragment : Fragment() {
         val galleryViewModel =
             ViewModelProvider(this).get(UsersViewModel::class.java)
 
-        _binding = FragmentUsersBinding.inflate(inflater, container, false)
+        _binding = UsersFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textUsers
