@@ -3,20 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/homeFragment"
         android:name="com.example.topitup.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/home_fragment" />
-
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_users"
+        android:id="@+id/detailFragment"
         android:name="com.example.topitup.DetailFragment"
         android:label="@string/menu_users"
-        tools:layout="@layout/detail_fragment" />
-
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/nav_history"
         android:name="com.example.topitup.HistoryFragment"
@@ -39,6 +45,6 @@
         tools:layout="@layout/scanner_fragment" >
         <action
             android:id="@+id/action_nav_scanner_to_nav_home"
-            app:destination="@id/nav_home" />
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

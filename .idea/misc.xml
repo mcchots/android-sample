@@ -17,9 +17,11 @@
         <entry key="app/src/main/res/layout/fragment_scan.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/fragment_users.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/history_item.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.2931562819203269" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.35833333333333334" />
         <entry key="app/src/main/res/layout/scanner_fragment.xml" value="0.2931562819203269" />
+        <entry key="app/src/main/res/layout/top_users_item.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/users_fragment.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.35137895812053116" />
         <entry key="app/src/main/res/menu/calculator_fragment.xml" value="0.35833333333333334" />
