@@ -20,7 +20,7 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
+        val detailViewModel =
             ViewModelProvider(this).get(DetailViewModel::class.java)
 
         _binding = DetailFragmentBinding.inflate(inflater, container, false)
