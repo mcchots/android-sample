@@ -16,7 +16,7 @@
         android:layout_marginBottom="8dp"
         android:ems="50"
         android:focusableInTouchMode="false"
-        android:gravity="right"
+        android:gravity="end"
         android:padding="32dp"
         android:scrollHorizontally="true"
         android:textSize="48sp"
@@ -75,7 +75,8 @@
                     android:paddingBottom="12dp"
                     android:text="AC"
                     android:textSize="20sp"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonPlusMinus"
@@ -93,10 +94,11 @@
                     android:paddingBottom="12dp"
                     android:text="+/-"
                     android:textSize="20sp"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
-                    android:id="@+id/buttonPerc"
+                    android:id="@+id/buttonPercentage"
                     android:layout_width="wrap_content"
                     android:textSize="20sp"
                     android:layout_height="wrap_content"
@@ -111,14 +113,14 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="％"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonDivide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
-                    android:textSize="20sp"
                     android:layout_marginTop="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_marginBottom="4dp"
@@ -129,7 +131,9 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="÷"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="20sp"
+                    style="?android:attr/buttonBarButtonStyle" />
 
             </TableRow>
 
@@ -154,7 +158,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="1"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button2"
@@ -172,7 +177,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="2"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button3"
@@ -190,7 +196,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="3"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonMultiply"
@@ -208,7 +215,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="✕"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
             </TableRow>
 
@@ -233,7 +241,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="4"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button5"
@@ -251,7 +260,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="5"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button6"
@@ -269,7 +279,8 @@
                     android:textSize="20sp"
                     android:paddingBottom="12dp"
                     android:text="6"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonMinus"
@@ -287,7 +298,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="－"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
             </TableRow>
 
@@ -312,7 +324,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="7"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button8"
@@ -330,7 +343,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="8"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button9"
@@ -348,7 +362,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="9"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonPlus"
@@ -366,7 +381,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="＋"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
             </TableRow>
 
@@ -392,7 +408,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="0"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonDot"
@@ -410,7 +427,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="."
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/buttonEqual"
@@ -428,7 +446,8 @@
                     android:paddingRight="0dp"
                     android:paddingBottom="12dp"
                     android:text="＝"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    style="?android:attr/buttonBarButtonStyle" />
 
             </TableRow>
         </TableLayout>
