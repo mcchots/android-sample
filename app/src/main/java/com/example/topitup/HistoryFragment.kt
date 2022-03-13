@@ -58,11 +58,14 @@ class HistoryFragment() : Fragment() {
 
         recyclerView.adapter = historyAdapter
 
-        lifecycle.coroutineScope.launch {
-            viewModel.getAll().collect() {
-                historyAdapter.submitList(it)
+        fun showAll() {
+            lifecycle.coroutineScope.launch {
+                viewModel.getAll().collect {
+                    historyAdapter.submitList(it)
+                }
             }
         }
+        showAll()
         //https://github.com/chankruze/DatePickerDialogFragment/blob/main/app/src/main/java/in/geekofia/example/demoapp/HomeFragment.kt
 
         binding.searchButton.setOnClickListener {// create new instance of DatePickerFragment
@@ -81,7 +84,7 @@ class HistoryFragment() : Fragment() {
 
                     //TODO: Is this the right way to do this?
                     lifecycle.coroutineScope.launch {
-                        viewModel.SearchDate(date.toString()).collect() {
+                        viewModel.searchDate(date.toString()).collect() {
                             historyAdapter.submitList(it)
                         }
                     }
@@ -93,7 +96,9 @@ class HistoryFragment() : Fragment() {
         }
 
         //TODO: Add another button to reset the search
-        //binding.resetButton.setOnClickListener {
+        binding.resetButton.setOnClickListener {
+               showAll()
+        }
     }
 
     override fun onDestroyView() {

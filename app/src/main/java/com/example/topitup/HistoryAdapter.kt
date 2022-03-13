@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.topitup.database.history.History
-import com.example.topitup.database.user.User
 import com.example.topitup.databinding.HistoryItemBinding
-import com.example.topitup.databinding.UsersItemBinding
 
 class HistoryAdapter(
 ) : ListAdapter<History, HistoryAdapter.HistoryViewHolder>(DiffCallback) {
@@ -28,7 +26,7 @@ class HistoryAdapter(
     class HistoryViewHolder(private var binding: HistoryItemBinding): RecyclerView.ViewHolder(binding.root) {
         //@SuppressLint("SimpleDateFormat")
         fun bind(history: History) {
-            binding.tvTransactionUser.text = history.usedId.toString()
+            binding.tvTransactionUser.text = history.name.toString()
             binding.tvCardNumber.text = history.cardNumber
             binding.tvDate.text = history.date
             binding.tvTime.text = history.time

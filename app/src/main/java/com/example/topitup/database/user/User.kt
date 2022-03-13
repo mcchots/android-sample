@@ -8,10 +8,10 @@ import androidx.room.PrimaryKey
 @Entity
 data class User(
     @PrimaryKey val id: Int,
-    @NonNull @ColumnInfo(name = "user_name") val username: String,
-    @NonNull @ColumnInfo(name = "password") val password: String,
-    @NonNull @ColumnInfo(name = "name") val name: String,
-    @NonNull @ColumnInfo(name = "cards_scanned") val cardsScanned: Int,
+    @ColumnInfo(name = "user_name") val username: String,
+    @ColumnInfo(name = "password") val password: String,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "cards_scanned") val cardsScanned: Int,
     @ColumnInfo(name = "points") val points: Int,
 
     )

@@ -1,15 +1,14 @@
 package com.example.topitup.database.history
 
 import androidx.annotation.NonNull
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.example.topitup.database.user.User
 
 @Entity
 data class History(
     @PrimaryKey val id: Int,
-    @NonNull @ColumnInfo(name = "user_id") val usedId: Int,
-    @NonNull @ColumnInfo(name = "card_number") val cardNumber: String,
-    @NonNull @ColumnInfo(name = "date") val date: String,
-    @NonNull @ColumnInfo(name = "time") val time: String,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "card_number") val cardNumber: String,
+    @ColumnInfo(name = "date") val date: String,
+    @ColumnInfo(name = "time") val time: String,
 )

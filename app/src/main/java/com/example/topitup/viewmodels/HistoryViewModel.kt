@@ -1,7 +1,5 @@
 package com.example.topitup.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.topitup.database.history.History
@@ -11,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 class HistoryViewModel(private val historyDao: HistoryDao) : ViewModel() {
     fun getAll(): Flow<List<History>> = historyDao.getAll()
 
-    fun SearchDate(date: String): Flow<List<History>> = historyDao.searchDate(date)
+    fun searchDate(date: String): Flow<List<History>> = historyDao.searchDate(date)
 
    /* private val _text = MutableLiveData<String>().apply {
         value = "All Dates"
