@@ -7,12 +7,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User(
-    @PrimaryKey val id: Int,
-    @ColumnInfo(name = "user_name") val username: String,
-    @ColumnInfo(name = "password") val password: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = "user_name") var username: String,
+    @ColumnInfo(name = "password") var password: String,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "cards_scanned") val cardsScanned: Int,
-    @ColumnInfo(name = "points") val points: Int,
+    @ColumnInfo(name = "cards_scanned") val cardsScanned: Int = 0,
+    @ColumnInfo(name = "points") val points: Int = 0,
 
     )
 

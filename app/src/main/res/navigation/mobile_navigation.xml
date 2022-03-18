@@ -3,17 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.topitup.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/home_fragment">
-        <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
+        tools:layout="@layout/home_fragment"/>
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.topitup.DetailFragment"
@@ -23,28 +20,48 @@
             android:name="name"
             app:argType="string" />
     </fragment>
+
     <fragment
         android:id="@+id/nav_history"
         android:name="com.example.topitup.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/history_fragment" />
+
     <fragment
         android:id="@+id/nav_calculator"
         android:name="com.example.topitup.CalculatorFragment"
         android:label="@string/menu_calculator"
         tools:layout="@layout/calculator_fragment" />
-  <!--  <fragment
-        android:id="@+id/nav_login"
-        android:name="com.example.topitup.ui.login.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login"/>-->
+
     <fragment
         android:id="@+id/nav_scanner"
         android:name="com.example.topitup.ScannerFragment"
         android:label="Scan Card"
-        tools:layout="@layout/scanner_fragment" >
+        tools:layout="@layout/scanner_fragment" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.topitup.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_nav_scanner_to_nav_home"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/registerFragment"
+        android:name="com.example.topitup.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
